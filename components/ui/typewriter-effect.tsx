@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 interface TypewriterTextProps {
   name: string;
@@ -29,6 +29,8 @@ export const TypewriterText = ({
   const [isDeleting, setIsDeleting] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
+  const memoizedRoles = useMemo(() => roles, [roles]);
+
   useEffect(() => {
     setIsMounted(true);
     return () => setIsMounted(false);
@@ -38,7 +40,7 @@ export const TypewriterText = ({
     if (!isMounted) return;
 
     let timeout: NodeJS.Timeout;
-    const currentRole = roles[currentIndex];
+    const currentRole = memoizedRoles[currentIndex];
     
     const type = () => {
       if (isDeleting) {
@@ -51,7 +53,7 @@ export const TypewriterText = ({
         timeout = setTimeout(() => setIsDeleting(true), pauseDuration);
       } else if (isDeleting && displayedRole === "") {
         setIsDeleting(false);
-        setCurrentIndex((prev) => (prev + 1) % roles.length);
+        setCurrentIndex((prev) => (prev + 1) % memoizedRoles.length);
         timeout = setTimeout(type, 500);
       } else {
         timeout = setTimeout(type, isDeleting ? deletingSpeed : typingSpeed);
@@ -60,7 +62,7 @@ export const TypewriterText = ({
 
     timeout = setTimeout(type, isDeleting ? deletingSpeed : typingSpeed);
     return () => clearTimeout(timeout);
-  }, [displayedRole, currentIndex, isDeleting, isMounted, roles]);
+  }, [displayedRole, currentIndex, isDeleting, isMounted, memoizedRoles, typingSpeed, deletingSpeed, pauseDuration]);
 
   return (
     <motion.div
@@ -69,7 +71,6 @@ export const TypewriterText = ({
       transition={{ duration: 0.5 }}
       className="text-center text-3xl md:text-4xl lg:text-5xl xl:text-6xl"
     >
-      {/* Desktop View (single line) */}
       <div className="hidden sm:block whitespace-nowrap">
         <span className="font-bold text-black dark:text-white">I&apos;m </span>
         <span className={`font-bold ${nameColor}`}>{name}</span>
@@ -82,7 +83,6 @@ export const TypewriterText = ({
         </span>
       </div>
 
-      {/* Mobile View (two lines) */}
       <div className="sm:hidden flex flex-col items-center">
         <div className="whitespace-nowrap">
           <span className="font-bold text-black dark:text-white">I&apos;m </span>

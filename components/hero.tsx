@@ -7,16 +7,15 @@ import { Spotlight } from "@/components/ui/spotlight";
 import { TypewriterText } from "@/components/ui/typewriter-effect"; 
 import { MagicButton } from "@/components/ui/magic-button";
 import { links } from "@/config";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 
 export const Hero = () => {
-  const roles = ["web developer", "gamer", "UI designer"];
+  const roles = useMemo(() => ["web developer", "gamer", "UI designer"], []);
   const [displayedRole, setDisplayedRole] = useState("");
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const typingSpeedRef = useRef(100);
 
-  // Add your social media links (or import from config)
   const socialLinks = [
     { name: "GitHub", url: links.github, icon: <FaGithub /> },
     { name: "LinkedIn", url: links.linkedin, icon: <FaLinkedin /> },
@@ -68,9 +67,9 @@ export const Hero = () => {
 
       <div className="relative z-10 flex h-full justify-center">
         <div className="flex max-w-[90vw] flex-col items-center justify-center">
-        <h2 className="text-center text-base uppercase tracking-widest text-blue-100 md:text-lg animate-fade-in-up">
-          Hello There!
-        </h2>
+          <h2 className="text-center text-base uppercase tracking-widest text-blue-100 md:text-lg animate-fade-in-up">
+            Hello There!
+          </h2>
 
           <TypewriterText
             name={links.ownerName}
@@ -87,7 +86,6 @@ export const Hero = () => {
             A Person who loves to create and design beautiful things.
           </p>
 
-          {/* Social Media Icons */}
           <div className="mb-6 flex gap-4">
             {socialLinks.map((social) => (
               <Link
