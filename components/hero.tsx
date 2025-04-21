@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { FaFacebook, FaLocationArrow, FaYoutube } from "react-icons/fa6";
-import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { Spotlight } from "@/components/ui/spotlight";
 import { TypewriterText } from "@/components/ui/typewriter-effect"; 
 import { MagicButton } from "@/components/ui/magic-button";
@@ -21,7 +21,7 @@ export const Hero = () => {
     { name: "GitHub", url: links.github, icon: <FaGithub /> },
     { name: "LinkedIn", url: links.linkedin, icon: <FaLinkedin /> },
     { name: "Youtube", url: links.youtube, icon: <FaYoutube /> },
-    { name: "Twitter", url: links.facebook, icon: <FaFacebook /> },
+    { name: "FaceBook", url: links.facebook, icon: <FaFacebook /> },
     { name: "Instagram", url: links.instagram, icon: <FaInstagram /> },
   ];
 

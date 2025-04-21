@@ -1,7 +1,5 @@
-import Image from "next/image";
-
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
-import { companies, testimonials } from "@/data";
+import { testimonials } from "@/data";
 
 export const Clients = () => {
   return (

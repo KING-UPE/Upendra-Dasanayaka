@@ -71,7 +71,7 @@ export const TypewriterText = ({
     >
       {/* Desktop View (single line) */}
       <div className="hidden sm:block whitespace-nowrap">
-        <span className="font-bold text-black dark:text-white">I'm </span>
+        <span className="font-bold text-black dark:text-white">I&apos;m </span>
         <span className={`font-bold ${nameColor}`}>{name}</span>
         <span className="font-bold text-black dark:text-white">, a </span>
         <span className={`font-bold ${roleColor}`}>
@@ -85,7 +85,7 @@ export const TypewriterText = ({
       {/* Mobile View (two lines) */}
       <div className="sm:hidden flex flex-col items-center">
         <div className="whitespace-nowrap">
-          <span className="font-bold text-black dark:text-white">I'm </span>
+          <span className="font-bold text-black dark:text-white">I&apos;m </span>
           <span className={`font-bold ${nameColor}`}>{name}</span>
           <span className="font-bold text-black dark:text-white">,</span>
         </div>
