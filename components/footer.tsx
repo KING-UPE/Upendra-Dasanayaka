@@ -24,9 +24,9 @@ export const Footer = () => {
         },
         body: JSON.stringify({
           access_key: "ba149a11-fb99-4d03-b49d-12ab51219301",
-          name: form.name.value,
-          email: form.email.value,
-          message: form.message.value,
+          name: (form.elements.namedItem("name") as HTMLInputElement).value,
+          email: (form.elements.namedItem("email") as HTMLInputElement).value,
+          message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
         }),
       });
 
@@ -54,7 +54,6 @@ export const Footer = () => {
           height={863}
         />
       </div>
-
 
       <div className="flex flex-col items-center">
         <h1 className="heading lg:max-w-[45vw]">
@@ -92,7 +91,6 @@ export const Footer = () => {
             className="p-3 rounded-md bg-black-200 border border-gray-600 focus:outline-none focus:ring-1 focus:ring-purple-500"
           />
 
-          {/* Proper submit button */}
           <button type="submit" className="md:mt-4 self-start">
             <MagicButton
               title="Submit Form"
