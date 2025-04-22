@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 
-
 import { links } from "@/config";
 import { techStack } from "@/data";
 import animationData from "@/data/confetti.json";
@@ -13,12 +12,7 @@ import { cn } from "@/lib/utils";
 
 import { MagicButton } from "./magic-button";
 
-
 const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
-const BackgroundGradientAnimation = dynamic(
-  () => import("./canvas-reveal-effect").then((mod) => mod.CanvasRevealEffect),
-  { ssr: false }
-);
 const GridGlobe = dynamic(
   () => import("./grid-globe").then((mod) => mod.GridGlobe), 
   { ssr: false }
@@ -141,8 +135,6 @@ export const BentoGridItem = ({
             />
           )}
         </div>
-
-        {id === 6 && <BackgroundGradientAnimation />}
 
         {/* Content container with forced bottom alignment for first box */}
         <div
