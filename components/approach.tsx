@@ -2,9 +2,17 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-
-import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
+import dynamic from "next/dynamic";
 import { MagicButton } from "@/components/ui/magic-button";
+
+// Dynamically import CanvasRevealEffect with no SSR and loading fallback
+const CanvasRevealEffect = dynamic(
+  () => import("./ui/canvas-reveal-effect").then((mod) => mod.CanvasRevealEffect),
+  {
+    ssr: false,
+    loading: () => <div className="w-full h-full bg-gray-900/20" />,
+  }
+);
 
 export const Approach = () => {
   return (
@@ -56,6 +64,8 @@ export const Approach = () => {
     </section>
   );
 };
+
+// ... [rest of your Card and Icon components remain exactly the same]
 
 type CardProps = {
   title: string;
