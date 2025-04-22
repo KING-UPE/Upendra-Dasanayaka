@@ -1,19 +1,28 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
-import Lottie from "react-lottie";
+
 
 import { links } from "@/config";
 import { techStack } from "@/data";
 import animationData from "@/data/confetti.json";
 import { cn } from "@/lib/utils";
 
-import { BackgroundGradientAnimation } from "./background-gradient-animation";
 import { MagicButton } from "./magic-button";
 
-import { GridGlobe } from "../grid-globe";
+
+const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
+const BackgroundGradientAnimation = dynamic(
+  () => import("./canvas-reveal-effect").then((mod) => mod.CanvasRevealEffect),
+  { ssr: false }
+);
+const GridGlobe = dynamic(
+  () => import("./grid-globe").then((mod) => mod.GridGlobe), 
+  { ssr: false }
+);
 
 export const BentoGrid = ({
   className,

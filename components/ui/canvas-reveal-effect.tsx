@@ -3,7 +3,6 @@
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import React, { useMemo, useRef, useEffect, useState } from "react";
 import * as THREE from "three";
-import dynamic from "next/dynamic";
 import { cn } from "@/lib/utils";
 
 // Client-only component wrapper
