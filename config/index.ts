@@ -5,7 +5,7 @@ export const links = {
   ownerEmail: "upendrauniversity@gmail.com",
   github: "https://github.com/KING-UPE",
   facebook: "https://web.facebook.com/profile.php?id=61574713296803",
-  linkedin: "https://www.linkedin.com/in/upendra-uddimantha-a09046283",
+  linkedin: "https://www.linkedin.com/in/upendra-uddimantha-dasanayaka",
   instagram: "https://www.instagram.com/__crazy._.demon__",
   youtube: "https://www.youtube.com/@upendra_dasanayaka",
 } as const;
