@@ -145,7 +145,7 @@ export const socialMedia = [
   {
     name: "LinkedIn",
     img: "/link.svg",
-    link: "https://www.linkedin.com/in/upendra-uddimantha-a09046283",
+    link: "https://www.linkedin.com/in/upendra-uddimantha-dasanayaka",
   },
   {
     name: "Youtube",
